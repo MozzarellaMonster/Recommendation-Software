@@ -1,4 +1,4 @@
-tags = ["found_footage", "science_fiction", "fantasy", "supernatural", "monster", "psychological", "fantasy",
+tags = ["found_footage", "science_fiction", "fantasy", "supernatural", "monster", "psychological",
         "zombie", "anthology", "comedy", "body_horror", "slasher", "satire", "romance"]
 
 movies = {"Paranormal Activity": ["found_footage", "supernatural"],
