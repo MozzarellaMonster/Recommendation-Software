@@ -1,3 +1,5 @@
+from maxheap import MaxHeap
+
 def heapsort(lst):
     sort = []
     max_heap = MaxHeap()
