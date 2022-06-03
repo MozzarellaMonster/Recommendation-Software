@@ -1,3 +1,4 @@
+#Codecademy's implementation of the heapsort algorithm
 from maxheap import MaxHeap
 
 def heapsort(lst):
