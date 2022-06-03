@@ -1,8 +1,9 @@
 #Program created by Night Librarian/Mozzarella Monster
 from movies_data import *
+from heapsort import heapsort
 from maxheap import MaxHeap
 
-def recommend():
+def recommendations():
     print("\nWelcome to my horror movie recommendation software!")
     print("Here are the different tags you can use for the type of film you wish to view.")
     print(" / ".join(tags) + "\n")
@@ -15,19 +16,19 @@ def recommend():
         user_tag = input("Please type in the beginning of the tag you want to add or type STOP to finish: ")
         if user_tag == "STOP":
             finished = True
-            break
+            continue
         for tag in tags:
             if tag.startswith(user_tag) and tag not in user_tags_list:
                 user_tags_list.append(tag)
         print("The tags you have chosen so far: " + " / ".join(user_tags_list))
-    
+        
     print("Finding movies for you...\n")
 
     for tag in user_tags_list:
         for movie in movies:
             if tag in movies[movie] and movie not in rec_movies:
                 rec_movies[movie] = 0
-    
+        
     for movie in rec_movies:
         for tag in user_tags_list:
             if tag in movies[movie]:
@@ -35,8 +36,17 @@ def recommend():
         rec_movies[movie] = tag_count
         tag_count = 0
         
-    
     print("Your tags: " + " / ".join(user_tags_list))
     print("The movies with those tags are: " + ", ".join("{0}({1})".format(key, value) for key, value in rec_movies.items()))
+    print()
+    print("Your movies as tuples: " + str(rec_movies.items()))
 
-recommend()
+def test():
+    outliers = []
+    for movie in movies:
+        for tag in movies[movie]:
+            if tag not in tags:
+                outliers.append(tag)
+    print(outliers)
+
+recommendations()
