@@ -1,5 +1,5 @@
 #Program created by Night Librarian/Mozzarella Monster
-from movies_data import *
+from movies_data import tags, movies
 from heapsort import heapsort
 from maxheap import MaxHeap
 
@@ -37,7 +37,7 @@ def recommendations():
         tag_count = 0
         
     print("Your tags: " + " / ".join(user_tags_list))
-    print("The movies with those tags are: " + ", ".join("{0}({1})".format(key, value) for key, value in rec_movies.items()))
+    print("The movies with those tags are: " + ", ".join("{0} ({1})".format(key, value) for key, value in rec_movies.items()))
     print()
     print("Your movies as tuples: " + str(rec_movies.items()))
 
