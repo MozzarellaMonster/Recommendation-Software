@@ -37,25 +37,11 @@ def recommendations():
     
     rec_movies = {key:value for key, value in rec_movies.items() if value > 1}
 
-    rec_movies_tuples = make_tuples(rec_movies)
+    rec_movies_tuples = [(key, value) for key, value in rec_movies.items()]
     rec_top_three = heapsort(rec_movies_tuples)[:3]
         
     print("Your tags: " + " / ".join(user_tags_list))
     print("The movies with those tags are: " + ", ".join("{0} ({1})".format(key, value) for key, value in rec_movies.items()) + "\n")
     print("Your top three movies are: " + ", ".join("{0} ({1})".format(key, value) for key, value in rec_top_three))
-
-def make_tuples(rec_movies):
-    # Takes a dictionary with movie names as keys and
-    # number of tags it satisfies as the value
-    # and returns a list of tuples
-    return [(key, value) for key, value in rec_movies.items()]
-
-def test():
-    outliers = []
-    for movie in movies:
-        for tag in movies[movie]:
-            if tag not in tags:
-                outliers.append(tag)
-    print(outliers)
 
 recommendations()
