@@ -12,6 +12,7 @@ def recommendations():
     finished = False
     tag_count = 0
     print("Please try to choose at least three tags to get the most accurate recommendations. Choosing one tag will not work at all.")
+    # Get user input
     while not finished:
         user_tag = input("Please type in the beginning of the tag you want to add or type STOP to finish: ")
         if user_tag == "STOP":
@@ -24,11 +25,13 @@ def recommendations():
         
     print("Finding movies for you...\n")
 
+    # Get movies that contain user-selected tags
     for tag in user_tags_list:
         for movie in movies:
             if tag in movies[movie] and movie not in rec_movies:
                 rec_movies[movie] = 0
-        
+
+    # Get number of tags the movies satisfy    
     for movie in rec_movies:
         for tag in user_tags_list:
             if tag in movies[movie]:
@@ -36,11 +39,15 @@ def recommendations():
         rec_movies[movie] = tag_count
         tag_count = 0
     
+    # Trim the selection to only include movies that satisfy multiple tags
     rec_movies = {key:value for key, value in rec_movies.items() if value > 1}
 
+    # Make dictionary into a list of tuples
     rec_movies_tuples = [(key, value) for key, value in rec_movies.items()]
+    # Use heapsort algorithm and select the top three movies
     rec_top_three = heapsort(rec_movies_tuples)[:3]
-        
+    
+    # Print recommended movies
     print("Your tags: " + " / ".join(user_tags_list))
     print("The movies with those tags are: " + ", ".join("{0} ({1})".format(key, value) for key, value in rec_movies.items()) + "\n")
     print("Your top three movies are: " + ", ".join("{0} ({1})".format(key, value) for key, value in rec_top_three))
