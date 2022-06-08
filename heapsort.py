@@ -8,5 +8,5 @@ def heapsort(lst):
         max_heap.add(movie_tuple)
     while max_heap.count > 0:
         max_value = max_heap.retrieve_max()
-        sort.insert(0, max_value)
+        sort.append(max_value)
     return sort
