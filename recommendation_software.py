@@ -40,7 +40,8 @@ def recommendations():
     rec_movies = {key:value for key, value in rec_movies.items() if value > 1}
 
     rec_movies_tuples = make_tuples(rec_movies)
-    rec_top_three = heapsort(rec_movies_tuples)[:3]
+    rec_top_three = heapsort(rec_movies_tuples)[-3:]
+    rec_top_three.reverse()
         
     print("Your tags: " + " / ".join(user_tags_list))
     print("The movies with those tags are: " + ", ".join("{0} ({1})".format(key, value) for key, value in rec_movies.items()) + "\n")
