@@ -2,7 +2,6 @@
 from multiprocessing.sharedctypes import Value
 from movies_data import tags, movies
 from heapsort import heapsort
-from maxheap import MaxHeap
 
 def recommendations():
     print("\nWelcome to my horror movie recommendation software!")
