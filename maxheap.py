@@ -55,7 +55,7 @@ class MaxHeap:
             larger_child_index = self.get_larger_child_idx(index)
             child = self.heap_list[larger_child_index]
             parent = self.heap_list[index]
-            if parent < child:
+            if parent[1] < child[1]:
                 self.heap_list[index] = child
                 self.heap_list[larger_child_index] = parent
             index = larger_child_index
