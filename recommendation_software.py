@@ -11,6 +11,7 @@ def recommendations():
     rec_movies = {}
     finished = False
     tag_count = 0
+    print("Please try to choose at least three tags to get the most accurate recommendations. Choosing one tag will not work at all.")
     while not finished:
         user_tag = input("Please type in the beginning of the tag you want to add or type STOP to finish: ")
         if user_tag == "STOP":
