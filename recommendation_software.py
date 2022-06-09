@@ -14,9 +14,17 @@ def recommendations():
     print("Please try to choose at least three tags to get the most accurate recommendations. Choosing one tag will not work at all.")
     # Get user input
     while not finished:
-        user_tag = input("Please type in the beginning of the tag you want to add or type STOP to finish: ")
+        user_tag = input("Please type in the beginning of the tag you want to add, type STOP to finish, or type REMOVE to remove a tag: ")
         if user_tag == "STOP":
             finished = True
+            continue
+        elif user_tag == "REMOVE":
+            tag_to_remove = input("Please type in the beginning of the tag you want to remove: ")
+            for tag in user_tags_list:
+                if tag.startswith(tag_to_remove):
+                    user_tags_list.remove(tag)
+            print("Tag removed")
+            print("The tags you have chosen so far: " + " / ".join(user_tags_list) + "\n")
             continue
         for tag in tags:
             if tag.startswith(user_tag) and tag not in user_tags_list:
