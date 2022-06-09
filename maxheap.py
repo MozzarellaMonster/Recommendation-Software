@@ -1,4 +1,5 @@
-#Codecademy's implementation of the MaxHeap data structure
+# Codecademy's implementation of the MaxHeap data structure
+# altered to better fit program's purpose
 class MaxHeap:
     def __init__(self):
         self.heap_list = [None]
