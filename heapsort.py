@@ -1,4 +1,5 @@
-#Codecademy's implementation of the heapsort algorithm
+# Codecademy's implementation of the heapsort algorithm
+# altered to better fit program's purpose
 from maxheap import MaxHeap
 
 def heapsort(lst):
