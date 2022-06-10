@@ -5,7 +5,15 @@ from heapsort import heapsort
 def recommendations():
     print("\nWelcome to my horror movie recommendation software!")
     print("Here are the different tags you can use for the type of film you wish to view.")
-    print(" / ".join(tags) + "\n")
+    
+    count = 0
+    for idx in range(len(tags)):
+        count += 1
+        if count % 10 == 0:
+            print(tags[idx] + " / ")
+        else:
+            print(tags[idx] + " / ",end="")
+    print("\n")
 
     user_tags_list = []
     rec_movies = {}
