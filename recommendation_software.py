@@ -4,7 +4,7 @@ from heapsort import heapsort
 
 def recommendations():
     print("\nWelcome to my horror movie recommendation software!")
-    print("Here are the different tags you can use for the type of film you wish to view.")
+    print("Here are the different tags you can use for the type of film you wish to view.\n")
     
     count = 0
     for idx in range(len(tags)):
